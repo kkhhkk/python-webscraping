@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+    KyungHwan News | {{detail_results.title}}
+  </title>
+
+  <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+</head>
+
+<body>
+    <header>
+    <h1>{{detail_results.title}}</h1>
+    <div>
+      {{detail_results.points}} points  |  By {{detail_results.author}}  |
+      <a href="{{detail_results.url}}" target="_blank">{{detail_results.url}}</a>
+    </div>
+  </header>
+
+  <main>
+    {% for comment in comments%}
+      {%if comment.author == None %}
+        <div>
+          [delete]
+        </div>
+        <hr>
+      {% else %}
+        <div>
+          <strong>{{comment.author}}:</strong>
+          <p></p>
+          {% autoescape false %}
+            <p>{{comment.text}}</p>
+          {% endautoescape %}
+          <p></p>
+        </div>
+        <hr>
+      {%endif%}
+    {%endfor%}
+  </main>
+</body>
+
+</html>

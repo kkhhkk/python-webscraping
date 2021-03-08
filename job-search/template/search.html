@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    Search Jobs | {{word}}
+  </title>
+  <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+</head>
+
+<body>
+    <header>
+    <h1>You find {{word}} jobs</h1>
+    <a href="/export?word={{word}}"> Export {{word}} file</a>
+    <h4><a href="/">↩︎ Go back</a></h4>
+  </header>
+
+  <main>
+    {%for result in results%}
+      <div>
+        <h3>{{result.title}}</h3>
+        <h3>{{result.company}}</h3>
+        <h3>
+          <a href="{{result.url}}" target="_blank">Apply</a>
+        </h3>
+      </div>
+      <hr>
+    {%endfor%}
+  </main>
+</body>
+
+</html>
